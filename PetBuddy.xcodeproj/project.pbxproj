@@ -11,6 +11,7 @@
 		6D2104C72C1ACA3D006EA836 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2104C62C1ACA3D006EA836 /* PostRequest.swift */; };
 		6D2104C92C1ACCEB006EA836 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2104C82C1ACCEB006EA836 /* APIClient.swift */; };
 		6D2104CB2C1ACE28006EA836 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2104CA2C1ACE28006EA836 /* APIEnvironment.swift */; };
+		6D5754772C305F7700D5C9B0 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 6D5754762C305F7700D5C9B0 /* Swifter */; };
 		6DA9C1B52C19A3D200D14CFB /* PetBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA9C1B42C19A3D200D14CFB /* PetBuddyApp.swift */; };
 		6DA9C1B72C19A3D200D14CFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA9C1B62C19A3D200D14CFB /* ContentView.swift */; };
 		6DA9C1B92C19A3D400D14CFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DA9C1B82C19A3D400D14CFB /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5754772C305F7700D5C9B0 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +214,9 @@
 			dependencies = (
 			);
 			name = PetBuddy;
+			packageProductDependencies = (
+				6D5754762C305F7700D5C9B0 /* Swifter */,
+			);
 			productName = PetBuddy;
 			productReference = 6DA9C1B12C19A3D200D14CFB /* PetBuddy.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 6DA9C1A82C19A3D200D14CFB;
+			packageReferences = (
+				6D5754752C305F7700D5C9B0 /* XCRemoteSwiftPackageReference "swifter" */,
+			);
 			productRefGroup = 6DA9C1B22C19A3D200D14CFB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -667,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6D5754752C305F7700D5C9B0 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter.git";
+			requirement = {
+				branch = stable;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6D5754762C305F7700D5C9B0 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D5754752C305F7700D5C9B0 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6DA9C1A92C19A3D200D14CFB /* Project object */;
 }
