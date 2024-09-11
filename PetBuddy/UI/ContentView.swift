@@ -9,26 +9,23 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    var publisher: AnyCancellable = {
-        let client = APIClient()
-        let request = PostRequest()
-        
-        return client.publisherForRequest(request)
-            .sink(receiveCompletion: { result in
-                 print(result)
-            }) { newPosts in
-                print(newPosts)
-            }
-    }()
+    @State private var showingLogin = true
+    let signInPublisher = NotificationCenter.default.publisher(for: .signInNotification)
+        .receive(on: RunLoop.main)
+    let signOutPublisher = NotificationCenter.default.publisher(for: .signOutNotification)
+        .receive(on: RunLoop.main)
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("HelloWrold")
+            .fullScreenCover(isPresented: $showingLogin) {
+                LoginSignupView()
+            }
+            .onReceive(signInPublisher) { _ in
+                showingLogin = false
+            }
+            .onReceive(signOutPublisher) { _ in
+                showingLogin = true
+            }
     }
 }
 

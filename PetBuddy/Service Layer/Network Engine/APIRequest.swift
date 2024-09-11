@@ -20,7 +20,7 @@ enum HTTPMethod: String {
 protocol APIRequest {
     // When the request finishes,
     // i want to handle the data and return a strong type -> Response
-    associatedtype Response: Decodable
+    associatedtype Response
     
     var method: HTTPMethod { get }
     var path: String { get }
@@ -29,18 +29,3 @@ protocol APIRequest {
     func handle(response: Data) throws -> Response
 }
 
-extension APIRequest {
-    var method: HTTPMethod { return .GET }
-    var body: Data? { return nil }
-    
-    func handle(response: Data) throws -> Response {
-        do {
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            let decodedResponse = try decoder.decode(Response.self, from: response)
-            return decodedResponse
-        } catch {
-            throw RequestError.CanNotHandleTheDataInProperWay
-        }
-    }
-}

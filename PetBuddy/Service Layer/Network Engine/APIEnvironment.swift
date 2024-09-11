@@ -12,8 +12,7 @@ struct APIEnvironment {
 }
 
 extension APIEnvironment {
-    // PRODUCTION BASEURL
     static let prod = APIEnvironment(baseURL: URL(string: "https://example.com/api/v1")!)
-    // LOCAL BASEURL
     static let local = APIEnvironment(baseURL: URL(string: "http://localhost:8080/api/v1")!)
+    static let local81 = APIEnvironment(baseURL: URL(string: "http://localhost:8081/api/v1")!)
 }
